@@ -1,0 +1,13 @@
+{
+  "name": "Star Art Works",
+  "short_name": "Star Art Works",
+  "description": "Interior and civil contractors, Thane — POP, furniture, plumbing, wiring, civil works, bathroom making, plastering, electric work, AC installation and maintenance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B1912",
+  "theme_color": "#1B1912",
+  "icons": [
+    { "src": "assets/brand/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/brand/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
