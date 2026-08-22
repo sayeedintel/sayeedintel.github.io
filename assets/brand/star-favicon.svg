@@ -1,0 +1,60 @@
+<svg width="300" height="300" viewBox="140 150 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Brushed gold frame -->
+    <linearGradient id="brushedGoldFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5DE9A"/>
+      <stop offset="18%" stop-color="#C9A144"/>
+      <stop offset="36%" stop-color="#8B6A1F"/>
+      <stop offset="50%" stop-color="#E8C766"/>
+      <stop offset="64%" stop-color="#9C7A2E"/>
+      <stop offset="82%" stop-color="#F2DA92"/>
+      <stop offset="100%" stop-color="#7A5B18"/>
+    </linearGradient>
+
+    <!-- Star facet gradients: light side (highlight) -->
+    <linearGradient id="starLightFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEBB0"/>
+      <stop offset="45%" stop-color="#E8C158"/>
+      <stop offset="100%" stop-color="#B5872B"/>
+    </linearGradient>
+
+    <!-- Star facet gradients: shadow side -->
+    <linearGradient id="starShadowFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C79A3E"/>
+      <stop offset="45%" stop-color="#8C6A1F"/>
+      <stop offset="100%" stop-color="#5C4310"/>
+    </linearGradient>
+  </defs>
+
+  <!-- brushed gold rounded square -->
+  <g transform="translate(140,150)">
+    <rect x="0" y="0" width="300" height="300" rx="55" ry="55" fill="url(#brushedGoldFav)"/>
+    <!-- inner black circle -->
+    <circle cx="150" cy="150" r="122" fill="#0a0a0a"/>
+
+    <!-- 3D faceted star -->
+    <g>
+      <path d="M 150,150 L 124.14,114.4 L 150.0,32.0 Z" fill="url(#starShadowFav)"/>
+      <path d="M 150,150 L 150.0,32.0 L 175.86,114.4 Z" fill="url(#starLightFav)"/>
+      <path d="M 150,150 L 175.86,114.4 L 262.22,113.54 Z" fill="url(#starShadowFav)"/>
+      <path d="M 150,150 L 262.22,113.54 L 191.85,163.6 Z" fill="url(#starLightFav)"/>
+      <path d="M 150,150 L 191.85,163.6 L 219.36,245.46 Z" fill="url(#starShadowFav)"/>
+      <path d="M 150,150 L 219.36,245.46 L 150.0,194.0 Z" fill="url(#starLightFav)"/>
+      <path d="M 150,150 L 150.0,194.0 L 80.64,245.46 Z" fill="url(#starShadowFav)"/>
+      <path d="M 150,150 L 80.64,245.46 L 108.15,163.6 Z" fill="url(#starLightFav)"/>
+      <path d="M 150,150 L 108.15,163.6 L 37.78,113.54 Z" fill="url(#starShadowFav)"/>
+      <path d="M 150,150 L 37.78,113.54 L 124.14,114.4 Z" fill="url(#starLightFav)"/>
+      <!-- fine ridge lines for fold definition -->
+      <g stroke="#5C4310" stroke-width="1.2" opacity="0.55">
+        <line x1="150" y1="150" x2="150.0" y2="32.0"/>
+        <line x1="150" y1="150" x2="262.22" y2="113.54"/>
+        <line x1="150" y1="150" x2="219.36" y2="245.46"/>
+        <line x1="150" y1="150" x2="80.64" y2="245.46"/>
+        <line x1="150" y1="150" x2="37.78" y2="113.54"/>
+      </g>
+      <!-- small dark star cavity at center for depth -->
+      <path d="M 150,132 L 156,148 L 173,148 L 159,158 L 164,175 L 150,165 L 136,175 L 141,158 L 127,148 L 144,148 Z"
+            fill="#050505" opacity="0.85"/>
+    </g>
+  </g>
+</svg>
