@@ -1,11 +1,11 @@
 /**
- * STAR ART WORKS — INTERACTIVE LOGIC & LIVSPACE SLIDER ENGINE
+ * STAR ART WORKS — INTERACTIVE LOGIC & SLIDER ENGINE
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. HERO SLIDER ENGINE (LIVSPACE CAROUSEL)
+     1. HERO SLIDER ENGINE
      ========================================================================== */
   const slides = document.querySelectorAll('.hero-slider-wrap .slide');
   const dots = document.querySelectorAll('.slider-dots .dot');
@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const featureAddons = {
-    'ceiling': { min: 0.4, max: 0.8, name: 'Gypsum POP Ceiling & Lights' },
-    'kitchen': { min: 1.1, max: 2.0, name: 'Acrylic Modular Kitchen' },
-    'wardrobes': { min: 0.8, max: 1.5, name: 'Custom Wardrobes & Storage' },
-    'electrical': { min: 0.3, max: 0.6, name: 'Full Electrical & Plumbing' },
+    'ceiling': { min: 0.4, max: 0.8, name: 'Gypsum POP Ceiling & Cove Lights' },
+    'kitchen': { min: 1.1, max: 2.0, name: 'Acrylic Modular Kitchen & Countertop' },
+    'wardrobes': { min: 0.8, max: 1.5, name: 'Sliding Wardrobes & Storage' },
+    'electrical': { min: 0.3, max: 0.6, name: 'Full Electrical Wiring & Plumbing' },
     'painting': { min: 0.3, max: 0.7, name: 'Interior & Exterior Painting' }
   };
 
