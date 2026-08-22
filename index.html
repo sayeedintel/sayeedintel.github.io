@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Art Works — Premium Home Interior &amp; Civil Contractor | Thane, Mumbai &amp; Navi Mumbai</title>
+  <title>Interior &amp; Civil Contractor in Thane, Mumbai | Star Art Works</title>
   <meta name="description"
-    content="Star Art Works offers complete end-to-end home interior design, modular kitchens, POP false ceiling, electrical, plumbing, and civil renovation services in Thane, Mumbai & Navi Mumbai. Get a free consultation today!">
+    content="Home interiors, modular kitchens, false ceilings &amp; civil renovation in Thane, Mumbai &amp; Navi Mumbai. 100% in-house crew. Book a free consultation today!">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="canonical" href="https://www.starartworks.in/">
+
+  <!-- Preload the visible hero slide's background image — it's the
+       Largest Contentful Paint element on this page, so the browser
+       should start fetching it immediately instead of discovering it
+       only after parsing the CSS/inline style. -->
+  <link rel="preload" as="image" href="/assets/images/hero-1.webp" fetchpriority="high">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Star Art Works">
+  <meta property="og:url" content="https://www.starartworks.in/">
   <meta property="og:title" content="Star Art Works — Home Interiors &amp; Renovation Experts">
   <meta property="og:description"
     content="Modular Kitchens, POP False Ceilings, Bathrooms &amp; Full Home Interiors delivered by 100% in-house master craftsmen.">
-  <meta property="og:image" content="/assets/images/hero-1.png">
+  <meta property="og:image" content="https://www.starartworks.in/assets/images/hero-1.png">
+  <meta property="og:locale" content="en_IN">
 
-  <!-- Favicon -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Star Art Works — Home Interiors &amp; Renovation Experts">
+  <meta name="twitter:description"
+    content="Modular Kitchens, POP False Ceilings, Bathrooms &amp; Full Home Interiors delivered by 100% in-house master craftsmen.">
+  <meta name="twitter:image" content="https://www.starartworks.in/assets/images/hero-1.png">
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/brand-new/star-art-works-icon.svg">
   <link rel="icon" type="image/x-icon" href="/assets/brand-new/favicon.ico">
@@ -29,6 +43,7 @@
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap"
     rel="stylesheet">
@@ -36,25 +51,71 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/styles.css">
 
-  <!-- Structured Data -->
+  <!-- Structured Data: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
+    "@id": "https://www.starartworks.in/#business",
     "name": "Star Art Works",
-    "image": "assets/images/hero-1.png",
+    "alternateName": "Star Art Works Interior & Civil Contractor",
+    "description": "End-to-end home interior design, modular kitchens, POP false ceilings, electrical, plumbing, painting, and civil renovation contractor serving Thane, Mumbai & Navi Mumbai.",
+    "url": "https://www.starartworks.in/",
+    "image": "https://www.starartworks.in/assets/images/hero-1.png",
+    "logo": "https://www.starartworks.in/assets/brand-new/star-art-works-icon.svg",
     "telephone": "+91-77384-06563",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Shop No. 8, Near Bus Stop, Road No. 16, Wagle Estate",
       "addressLocality": "Thane",
+      "addressRegion": "Maharashtra",
       "postalCode": "400604",
       "addressCountry": "IN"
     },
-    "areaServed": ["Thane", "Mumbai", "Navi Mumbai"],
+    "areaServed": [
+      { "@type": "City", "name": "Thane" },
+      { "@type": "City", "name": "Mumbai" },
+      { "@type": "City", "name": "Navi Mumbai" }
+    ],
     "sameAs": [
       "https://instagram.com/starart_works",
-      "https://wa.me/917738406563"
+      "https://wa.me/917738406563",
+      "https://share.google/Nlb2Zk3c5AKngc6qq"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage (matches the FAQ section further down this
+       page — keep both in sync if you edit the FAQ answers). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you hire sub-contractors for electrical or plumbing work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No! We employ a 100% in-house specialized crew for false ceilings, POP plastering, plumbing, electrical wiring, tiling, and carpentry. This ensures strict quality control and zero miscommunication on site."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a 2 BHK full home renovation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical 2 BHK full home renovation takes approximately 35 to 45 working days, depending on structural civil modifications and custom woodwork scope."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which locations do you service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We service all areas across Thane (West & East, Ghodbunder Road), Mumbai (Central, Western & South Mumbai), and Navi Mumbai (Vashi, Nerul, Kharghar, Seawoods)."
+        }
+      }
     ]
   }
   </script>
@@ -133,7 +194,7 @@
           <div class="hero-slider-track">
 
             <!-- Slide 1: Full Home Interiors -->
-            <div class="slide active" style="background-image: url('assets/images/hero-1.png');">
+            <div class="slide active" style="background-image: url('assets/images/hero-1.webp');">
               <div class="slide-overlay">
                 <span class="slide-badge">Full Home Interiors</span>
                 <h1 class="slide-title">Breathtaking Interiors,<br>Delivered Stress-Free</h1>
@@ -147,10 +208,10 @@
             </div>
 
             <!-- Slide 2: Modular Kitchens -->
-            <div class="slide" style="background-image: url('assets/images/hero-2.png');">
+            <div class="slide" style="background-image: url('assets/images/hero-2.webp');">
               <div class="slide-overlay">
                 <span class="slide-badge">Modular Kitchens</span>
-                <h1 class="slide-title">Smart Modular Kitchens,<br>Crafted for Life</h1>
+                <h2 class="slide-title">Smart Modular Kitchens,<br>Crafted for Life</h2>
                 <p class="slide-desc">Acrylic, laminate &amp; PU finishes with Blum soft-close hardware, quartz
                   countertops, and moisture-resistant marine ply carcass.</p>
                 <div class="slide-cta">
@@ -161,10 +222,10 @@
             </div>
 
             <!-- Slide 3: POP & False Ceiling -->
-            <div class="slide" style="background-image: url('assets/images/hero-3.png');">
+            <div class="slide" style="background-image: url('assets/images/hero-3.webp');">
               <div class="slide-overlay">
                 <span class="slide-badge">Gypsum &amp; POP False Ceilings</span>
-                <h1 class="slide-title">Designer Ceilings &amp;<br>Ambient LED Lighting</h1>
+                <h2 class="slide-title">Designer Ceilings &amp;<br>Ambient LED Lighting</h2>
                 <p class="slide-desc">Saint-Gobain Gypsum channels, concealed cove lighting, architectural downlights,
                   and custom CNC lounge patterns.</p>
                 <div class="slide-cta">
@@ -175,10 +236,10 @@
             </div>
 
             <!-- Slide 4: Master Bedroom -->
-            <div class="slide" style="background-image: url('assets/images/hero-4.png');">
+            <div class="slide" style="background-image: url('assets/images/hero-4.webp');">
               <div class="slide-overlay">
                 <span class="slide-badge">Luxury Bedrooms</span>
-                <h1 class="slide-title">Custom Wardrobes &amp;<br>Aesthetic Bedroom Walls</h1>
+                <h2 class="slide-title">Custom Wardrobes &amp;<br>Aesthetic Bedroom Walls</h2>
                 <p class="slide-desc">Sliding wardrobes, acoustic wall fluting, integrated bedside lighting, and
                   space-maximizing storage solutions.</p>
                 <div class="slide-cta">
@@ -250,7 +311,7 @@
           <!-- Card 1 -->
           <div class="service-card reveal">
             <div class="service-img-wrap">
-              <img src="/assets/images/hero-2.png" alt="Modular Kitchen Interior">
+              <img src="/assets/images/hero-2.webp" alt="Modular Kitchen Interior" width="1024" height="1024" loading="lazy" decoding="async">
               <span class="service-tag">Most Popular</span>
             </div>
             <div class="service-body">
@@ -280,7 +341,7 @@
           <!-- Card 2 -->
           <div class="service-card reveal">
             <div class="service-img-wrap">
-              <img src="/assets/images/hero-3.png" alt="False Ceiling POP Design">
+              <img src="/assets/images/hero-3.webp" alt="False Ceiling POP Design" width="1024" height="1024" loading="lazy" decoding="async">
               <span class="service-tag">In-House Master Craft</span>
             </div>
             <div class="service-body">
@@ -310,7 +371,7 @@
           <!-- Card 3 -->
           <div class="service-card reveal">
             <div class="service-img-wrap">
-              <img src="/assets/images/hero-1.png" alt="Living Room Interior">
+              <img src="/assets/images/hero-1.webp" alt="Living Room Interior" width="1024" height="1024" loading="lazy" decoding="async">
               <span class="service-tag">Turnkey Renovation</span>
             </div>
             <div class="service-body">
@@ -340,7 +401,7 @@
           <!-- Card 4 -->
           <div class="service-card reveal">
             <div class="service-img-wrap">
-              <img src="/assets/images/hero-4.png" alt="Custom Wardrobe & Furniture">
+              <img src="/assets/images/hero-4.webp" alt="Custom Wardrobe & Furniture" width="1024" height="1024" loading="lazy" decoding="async">
             </div>
             <div class="service-body">
               <h3>Custom Wardrobes &amp; Storage</h3>
@@ -608,7 +669,7 @@
         <div class="projects-grid">
 
           <div class="project-card" data-category="living">
-            <img src="/assets/images/hero-1.png" alt="Living Room Thane">
+            <img src="/assets/images/hero-1.webp" alt="Living Room Thane" width="1024" height="1024" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Hiranandani Estate, Thane</span>
               <h3 class="project-title">Modern Minimalist 2BHK Lounge</h3>
@@ -616,7 +677,7 @@
           </div>
 
           <div class="project-card" data-category="kitchen">
-            <img src="/assets/images/hero-2.png" alt="Modular Kitchen Powai">
+            <img src="/assets/images/hero-2.webp" alt="Modular Kitchen Powai" width="1024" height="1024" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Powai, Mumbai</span>
               <h3 class="project-title">Dual-Tone Acrylic Parallel Kitchen</h3>
@@ -624,7 +685,7 @@
           </div>
 
           <div class="project-card" data-category="ceiling">
-            <img src="/assets/images/hero-3.png" alt="Coffer False Ceiling Vashi">
+            <img src="/assets/images/hero-3.webp" alt="Coffer False Ceiling Vashi" width="1024" height="1024" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Vashi, Navi Mumbai</span>
               <h3 class="project-title">Coffer Ceiling &amp; Warm Cove Light</h3>
@@ -632,7 +693,7 @@
           </div>
 
           <div class="project-card" data-category="bedroom">
-            <img src="/assets/images/hero-4.png" alt="Master Bedroom Suite Bandra">
+            <img src="/assets/images/hero-4.webp" alt="Master Bedroom Suite Bandra" width="1024" height="1024" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Bandra West, Mumbai</span>
               <h3 class="project-title">Luxury Suite with Fluted Wood Panel</h3>
@@ -640,7 +701,7 @@
           </div>
 
           <div class="project-card" data-category="ceiling">
-            <img src="/assets/images/work-cross-pattern-ceiling.jpg" alt="Geometric Lattice Ceiling">
+            <img src="/assets/images/work-cross-pattern-ceiling.webp" alt="Geometric Lattice Ceiling" width="1200" height="1599" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Ghodbunder Road, Thane</span>
               <h3 class="project-title">Geometric POP Lattice Ceiling</h3>
@@ -648,7 +709,7 @@
           </div>
 
           <div class="project-card" data-category="living">
-            <img src="/assets/images/work-05-living-space.jpg" alt="TV Wall Unit Seawoods">
+            <img src="/assets/images/work-05-living-space.webp" alt="TV Wall Unit Seawoods" width="1200" height="800" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Seawoods, Navi Mumbai</span>
               <h3 class="project-title">Marble &amp; Louver TV Unit</h3>
@@ -656,7 +717,7 @@
           </div>
 
           <div class="project-card" data-category="ceiling">
-            <img src="/assets/images/work-01-lounge-ceiling.jpg" alt="Lounge False Ceiling">
+            <img src="/assets/images/work-01-lounge-ceiling.webp" alt="Lounge False Ceiling" width="736" height="736" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Majiwada, Thane</span>
               <h3 class="project-title">Warm Ambient Lounge False Ceiling</h3>
@@ -664,7 +725,7 @@
           </div>
 
           <div class="project-card" data-category="bedroom">
-            <img src="/assets/images/work-11-panelled-bedroom.jpg" alt="Panelled Bedroom">
+            <img src="/assets/images/work-11-panelled-bedroom.webp" alt="Panelled Bedroom" width="720" height="960" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Kharghar, Navi Mumbai</span>
               <h3 class="project-title">Acoustic Panelled Master Bedroom</h3>
@@ -672,7 +733,7 @@
           </div>
 
           <div class="project-card" data-category="ceiling">
-            <img src="/assets/images/work-multitier-cove-ceiling.jpg" alt="Multi-tier Ceiling">
+            <img src="/assets/images/work-multitier-cove-ceiling.webp" alt="Multi-tier Ceiling" width="1200" height="1600" loading="lazy" decoding="async">
             <div class="project-overlay">
               <span class="project-location">Worli, South Mumbai</span>
               <h3 class="project-title">Multi-Tier Architectural Cove Ceiling</h3>
@@ -725,8 +786,8 @@
       </div>
     </section>
 
-    <!-- ============ CLIENT TESTIMONIALS ============ -->
-    <section id="testimonials" class="testimonials-section">
+    <!-- ============ CLIENT REVIEWS ============ -->
+    <section id="testimonials" class="testimonials-section reviews-section">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Client Feedback</span>
@@ -734,83 +795,117 @@
           <p>Real stories from clients who trusted Star Art Works with their home transformation.</p>
         </div>
 
-        <div class="testimonials-grid">
+        <div class="reviews-carousel reveal">
+          <button type="button" class="reviews-arrow reviews-arrow-left" id="reviewsArrowLeft"
+            aria-label="Scroll to previous reviews">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
 
-          <div class="testimonial-card reveal">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p class="quote-text">"Star Art Works handled our renovation professionally from start to finish. Clean
-                work, timely completion, and good communication throughout."</p>
-            </div>
-            <div class="client-info">
-              <div class="client-avatar">R</div>
-              <div class="client-details">
-                <h5>Rishi</h5>
-                <p>Rosabella, Thane</p>
-              </div>
-            </div>
-          </div>
+          <div class="reviews-track" id="reviewsTrack">
 
-          <div class="testimonial-card reveal">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p class="quote-text">"Good experience working with the team — they understood exactly what we wanted
-                and delivered quality work within budget."</p>
-            </div>
-            <div class="client-info">
-              <div class="client-avatar">SK</div>
-              <div class="client-details">
-                <h5>Sudarshan Khurana</h5>
-                <p>Koparkhairne, Navi Mumbai</p>
-              </div>
-            </div>
-          </div>
+            <article class="review-card">
+              <header class="review-card-head">
+                <div class="client-avatar">R</div>
+                <div class="review-card-heading">
+                  <h5>Rishi</h5>
+                  <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                  </div>
+                </div>
+              </header>
+              <p class="quote-text">"Star Art Works handled our renovation professionally from start to finish.
+                Clean work, timely completion, and good communication throughout."</p>
+              <p class="review-location">Rosabella, Thane</p>
+            </article>
 
-          <div class="testimonial-card reveal">
-            <div>
-              <div class="stars">★★★★★</div>
+            <article class="review-card">
+              <header class="review-card-head">
+                <div class="client-avatar">SK</div>
+                <div class="review-card-heading">
+                  <h5>Sudarshan Khurana</h5>
+                  <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                  </div>
+                </div>
+              </header>
+              <p class="quote-text">"Good experience working with the team — they understood exactly what we
+                wanted and delivered quality work within budget."</p>
+              <p class="review-location">Koparkhairne, Navi Mumbai</p>
+            </article>
+
+            <article class="review-card">
+              <header class="review-card-head">
+                <div class="client-avatar">AB</div>
+                <div class="review-card-heading">
+                  <h5>Ahmad Bhai</h5>
+                  <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                  </div>
+                </div>
+              </header>
               <p class="quote-text">"Reliable and hardworking team. Handled everything from ceiling to electrical
                 work without any hassle on our end."</p>
-            </div>
-            <div class="client-info">
-              <div class="client-avatar">AB</div>
-              <div class="client-details">
-                <h5>Ahmad Bhai</h5>
-                <p>Byculla, Mumbai</p>
-              </div>
-            </div>
+              <p class="review-location">Byculla, Mumbai</p>
+            </article>
+
+            <article class="review-card">
+              <header class="review-card-head">
+                <div class="client-avatar">MP</div>
+                <div class="review-card-heading">
+                  <h5>Mahesh Phadnis</h5>
+                  <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                  </div>
+                </div>
+              </header>
+              <p class="quote-text">"Very satisfied with the finishing and attention to detail. Would recommend
+                Star Art Works for home renovation work."</p>
+              <p class="review-location">Manpada, Thane</p>
+            </article>
+
+            <article class="review-card">
+              <header class="review-card-head">
+                <div class="client-avatar">NP</div>
+                <div class="review-card-heading">
+                  <h5>Nilesh Phadnis</h5>
+                  <div class="review-meta">
+                    <span class="stars">★★★★★</span>
+                  </div>
+                </div>
+              </header>
+              <p class="quote-text">"Professional team, fair pricing, and they completed the work on schedule.
+                Happy with the overall result."</p>
+              <p class="review-location">Dosti Vartak Nagar, Thane</p>
+            </article>
+
           </div>
 
-          <div class="testimonial-card reveal">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p class="quote-text">"Very satisfied with the finishing and attention to detail. Would recommend Star
-                Art Works for home renovation work."</p>
-            </div>
-            <div class="client-info">
-              <div class="client-avatar">MP</div>
-              <div class="client-details">
-                <h5>Mahesh Phadnis</h5>
-                <p>Manpada, Thane</p>
-              </div>
-            </div>
-          </div>
+          <button type="button" class="reviews-arrow reviews-arrow-right" id="reviewsArrowRight"
+            aria-label="Scroll to next reviews">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
 
-          <div class="testimonial-card reveal">
-            <div>
-              <div class="stars">★★★★★</div>
-              <p class="quote-text">"Professional team, fair pricing, and they completed the work on schedule. Happy
-                with the overall result."</p>
-            </div>
-            <div class="client-info">
-              <div class="client-avatar">NP</div>
-              <div class="client-details">
-                <h5>Nilesh Phadnis</h5>
-                <p>Dosti Vartak Nagar, Thane</p>
-              </div>
-            </div>
-          </div>
-
+        <div class="reviews-footer reveal">
+          <a href="https://share.google/Nlb2Zk3c5AKngc6qq" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg class="google-g" viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
+              <path fill="#4285F4"
+                d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+              <path fill="#34A853"
+                d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+              <path fill="#FBBC05"
+                d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z" />
+              <path fill="#EA4335"
+                d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+            </svg>
+            Check Our Reviews on Google
+          </a>
         </div>
       </div>
     </section>
@@ -1018,7 +1113,8 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="/js/script.js"></script>
+  <script src="/js/script.js" defer></script>
+  <script src="js/reviews-carousel.js" defer></script>
 </body>
 
 </html>
