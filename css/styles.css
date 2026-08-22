@@ -1,9 +1,9 @@
 /* ==========================================================================
-   STAR ART WORKS — LIGHT THEME & LIVSPACE STYLING SYSTEM
+   STAR ART WORKS — LIGHT THEME & STYLING
    ========================================================================== */
 
 :root {
-  /* Color Palette - Premium Livspace Inspired */
+  /* Color Palette - Premium */
   --bg-body: #FFFFFF;
   --bg-alt: #F8F9FA;
   --bg-surface: #FFFFFF;
@@ -38,6 +38,8 @@
   --font-mono: 'IBM Plex Mono', monospace;
   
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --header-height: 80px;
+  --header-height-mobile: 68px;
 }
 
 /* Reset & Base */
@@ -50,6 +52,47 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+}
+
+/* Every anchor-jump target on the site (in-page sections and the
+   individual service cards) needs this, or the sticky 80px header
+   covers the top of whatever you jump to -- heading included. */
+section[id],
+.service-card[id] {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+@media (max-width: 768px) {
+  section[id],
+  .service-card[id] {
+    scroll-margin-top: calc(var(--header-height-mobile) + 12px);
+  }
+}
+
+/* Visible keyboard focus on every interactive element, not just form
+   inputs. Uses the brand accent so it reads as intentional, not a
+   browser default. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.faq-question:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect the OS-level reduced-motion preference: kill scroll-reveal
+   animation, hero slider transitions, and hover-transform motion for
+   anyone who has asked their system to minimize it. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -389,7 +432,7 @@ header.header-scrolled {
 }
 
 /* ==========================================================================
-   LIVSPACE-STYLE HERO SLIDER WITH FLOATING FORM
+   HERO SLIDER WITH FLOATING FORM
    ========================================================================== */
 
 .hero-section {
@@ -1407,6 +1450,53 @@ header.header-scrolled {
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+/* ==========================================================================
+   CLOSING CTA BANNER — used across About, Services, Portfolio, and
+   How It Works. One class instead of four copies of the same inline
+   styles, so it stays visually consistent if it's ever updated.
+   ========================================================================== */
+
+.cta-banner {
+  padding: 70px 0;
+  background: linear-gradient(135deg, var(--brand-navy) 0%, #1a2436 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 15% 20%, rgba(231, 76, 60, 0.12) 0%, transparent 45%),
+                     radial-gradient(circle at 85% 80%, rgba(231, 76, 60, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.cta-banner .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-banner h2 {
+  color: #FFFFFF;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.cta-banner p {
+  color: #CBD5E1;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 28px auto;
+}
+
+.cta-banner .btn {
+  font-size: 1.05rem;
+  padding: 14px 32px;
 }
 
 /* ==========================================================================
