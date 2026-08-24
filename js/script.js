@@ -108,82 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ==========================================================================
-     2. INTERACTIVE RENOVATION COST ESTIMATOR
-     ========================================================================== */
-  const estTypeBtns = document.querySelectorAll('.est-btn[data-bhk]');
-  const estCheckboxes = document.querySelectorAll('.est-checkbox-card input');
-  const priceDisplay = document.getElementById('priceDisplay');
-  const estBhkLabel = document.getElementById('estBhkLabel');
-  const estItemsList = document.getElementById('estItemsList');
-
-  let selectedBHK = '2bhk';
-  const basePrices = {
-    '1bhk': { min: 2.2, max: 3.8, title: '1 BHK Apartment' },
-    '2bhk': { min: 3.5, max: 5.8, title: '2 BHK Apartment' },
-    '3bhk': { min: 5.2, max: 8.5, title: '3 BHK Apartment' },
-    'kitchen': { min: 1.2, max: 2.2, title: 'Modular Kitchen Only' }
-  };
-
-  const featureAddons = {
-    'ceiling': { min: 0.4, max: 0.8, name: 'Gypsum POP Ceiling & Cove Lights' },
-    'kitchen': { min: 1.1, max: 2.0, name: 'Acrylic Modular Kitchen & Countertop' },
-    'wardrobes': { min: 0.8, max: 1.5, name: 'Sliding Wardrobes & Storage' },
-    'electrical': { min: 0.3, max: 0.6, name: 'Full Electrical Wiring & Plumbing' },
-    'painting': { min: 0.3, max: 0.7, name: 'Interior & Exterior Painting' }
-  };
-
-  function updateEstimator() {
-    if (!priceDisplay) return;
-
-    let base = basePrices[selectedBHK] || basePrices['2bhk'];
-    let totalMin = base.min;
-    let totalMax = base.max;
-    let selectedAddons = [];
-
-    estCheckboxes.forEach(cb => {
-      const card = cb.closest('.est-checkbox-card');
-      if (cb.checked) {
-        if (card) card.classList.add('active');
-        const addonKey = cb.value;
-        if (featureAddons[addonKey]) {
-          totalMin += featureAddons[addonKey].min;
-          totalMax += featureAddons[addonKey].max;
-          selectedAddons.push(featureAddons[addonKey].name);
-        }
-      } else {
-        if (card) card.classList.remove('active');
-      }
-    });
-
-    priceDisplay.textContent = `Approx. ₹${totalMin.toFixed(1)}L - ₹${totalMax.toFixed(1)}L`;
-    if (estBhkLabel) estBhkLabel.textContent = base.title;
-
-    if (estItemsList) {
-      estItemsList.innerHTML = `
-        <li><span>Base Package</span><strong>Included</strong></li>
-        ${selectedAddons.map(name => `<li><span>${name}</span><strong>Included</strong></li>`).join('')}
-      `;
-    }
-  }
-
-  estTypeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      estTypeBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedBHK = btn.getAttribute('data-bhk');
-      updateEstimator();
-    });
-  });
-
-  estCheckboxes.forEach(cb => {
-    cb.addEventListener('change', updateEstimator);
-  });
-
-  updateEstimator();
-
-
-  /* ==========================================================================
-     3. FEATURED PROJECTS FILTERABLE GALLERY
+     2. FEATURED PROJECTS FILTERABLE GALLERY
      ========================================================================== */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
@@ -279,7 +204,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-      document.body.classList.toggle('mobile-menu-open');
+      const isOpen = document.body.classList.toggle('mobile-menu-open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('mobile-menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!document.body.classList.contains('mobile-menu-open')) return;
+      const header = document.querySelector('header');
+      if (header && !header.contains(e.target)) {
+        document.body.classList.remove('mobile-menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
@@ -312,23 +254,26 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const nameInput = form.querySelector('input[name="name"], input[placeholder*="Name"], input[type="text"]');
-      const phoneInput = form.querySelector('input[name="phone"], input[type="tel"]');
+      const nameInput = form.querySelector('input[name="name"], #contactName, input[placeholder*="Name"]');
+      const phoneInput = form.querySelector('input[name="phone"], #contactPhone, input[type="tel"]');
+      const locationInput = form.querySelector('input[name="location"], #contactLoc');
       const serviceSelect = form.querySelector('select');
-      const messageInput = form.querySelector('textarea, input[name="message"]');
+      const messageInput = form.querySelector('textarea, input[name="message"], #contactMsg');
 
       const name = nameInput ? nameInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
+      const location = locationInput ? locationInput.value.trim() : '';
       const service = serviceSelect ? serviceSelect.value : '';
       const message = messageInput ? messageInput.value.trim() : '';
 
       let text = `Hello Star Art Works,\n\nI would like to inquire about interior & civil contracting services.`;
       if (name) text += `\n- *Name:* ${name}`;
       if (phone) text += `\n- *Phone:* ${phone}`;
+      if (location) text += `\n- *Location:* ${location}`;
       if (service) text += `\n- *Service:* ${service}`;
       if (message) text += `\n- *Requirements:* ${message}`;
 
-      const waUrl = `https://wa.me/917738406563?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/918318375165?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
     });
   });

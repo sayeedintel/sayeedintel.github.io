@@ -1,9 +1,9 @@
 /* ==========================================================================
-   STAR ART WORKS — LIGHT THEME & STYLING
+   STAR ART WORKS — LIGHT THEME & LIVSPACE STYLING SYSTEM
    ========================================================================== */
 
 :root {
-  /* Color Palette - Premium */
+  /* Color Palette - Premium Livspace Inspired */
   --bg-body: #FFFFFF;
   --bg-alt: #F8F9FA;
   --bg-surface: #FFFFFF;
@@ -340,14 +340,37 @@ header.header-scrolled {
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: min(320px, 42vw);
 }
 
+.brand-logo,
 .brand-logo-icon {
-  width: 42px;
   height: 42px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
-  border-radius: 10px;
-  flex-shrink: 0;
+  display: block;
+  flex-shrink: 1;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  line-height: 0;
+  text-decoration: none;
+  max-width: none;
+}
+
+.footer-brand .brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: min(260px, 70vw);
 }
 
 .brand-text {
@@ -432,7 +455,7 @@ header.header-scrolled {
 }
 
 /* ==========================================================================
-   HERO SLIDER WITH FLOATING FORM
+   LIVSPACE-STYLE HERO SLIDER WITH FLOATING FORM
    ========================================================================== */
 
 .hero-section {
@@ -918,154 +941,249 @@ header.header-scrolled {
 }
 
 /* ==========================================================================
-   INTERACTIVE ROOM COST ESTIMATOR SECTION
+   HOW WE QUOTE / PROMISE SECTION
    ========================================================================== */
 
-.estimator-section {
+.quote-promise-section {
   padding: 90px 0;
   background-color: var(--bg-alt);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
 
-.estimator-card {
+.quote-promise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.quote-promise-card {
   background: #FFFFFF;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-light);
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 40px;
-}
-
-.estimator-controls h3 {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-}
-
-.option-group {
-  margin-bottom: 24px;
-}
-
-.option-label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--brand-navy);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.est-btn {
-  padding: 12px;
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  background: var(--bg-body);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
+}
+
+.quote-promise-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.quote-promise-num {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  margin-bottom: 12px;
+}
+
+.quote-promise-card h3 {
+  font-size: 1.15rem;
+  color: var(--brand-navy);
+  margin-bottom: 10px;
+}
+
+.quote-promise-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.quote-promise-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-story-section {
+  padding: 80px 0;
+  background: #FFFFFF;
+}
+
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.about-stat-divider {
+  border-left: 1px solid var(--border-light);
+  padding-left: 20px;
+}
+
+.service-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service-area-chip {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  font-weight: 600;
+  color: var(--brand-navy);
   text-align: center;
 }
 
-.est-btn.active, .est-btn:hover {
-  border-color: var(--brand-primary);
-  background: rgba(231, 76, 60, 0.06);
-  color: var(--brand-primary);
-}
-
-.checkbox-grid {
+.timeline-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.est-checkbox-card {
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: var(--transition);
-  user-select: none;
-}
-
-.est-checkbox-card.active {
-  border-color: var(--brand-primary);
-  background: rgba(231, 76, 60, 0.05);
-}
-
-.est-checkbox-card input {
-  accent-color: var(--brand-primary);
-  width: 16px;
-  height: 16px;
-}
-
-/* Estimator Output Side */
-.estimator-summary {
-  background: var(--brand-navy);
-  color: #FFFFFF;
+.timeline-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 32px;
+  padding: 24px;
+  text-align: center;
+}
+
+.timeline-card strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--brand-primary);
+  margin-bottom: 6px;
+}
+
+.timeline-card span {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.materials-strip {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.summary-header {
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  padding-bottom: 20px;
-  margin-bottom: 24px;
+.material-chip {
+  background: #FFFFFF;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--brand-navy);
 }
 
-.summary-header span {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #94A3B8;
+.seo-band {
+  padding: 72px 0;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light);
 }
 
-.price-display {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #FCD34D;
-  margin-top: 4px;
+.seo-band--alt {
+  background: var(--bg-alt);
 }
 
-.breakdown-list {
+.seo-band-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.seo-band h2 {
+  font-size: 1.9rem;
+  color: var(--brand-navy);
+  margin-bottom: 14px;
+}
+
+.seo-band p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  font-size: 1.02rem;
+}
+
+.seo-checklist {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 30px;
+  margin: 0;
+  padding: 0;
 }
 
-.breakdown-list li {
+.seo-checklist li {
   display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: #CBD5E1;
+  gap: 12px;
+  align-items: flex-start;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
-.breakdown-list li strong {
-  color: #FFFFFF;
+.seo-band--alt .seo-checklist li {
+  background: #FFFFFF;
 }
 
-.estimator-disclaimer {
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: #94A3B8;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 14px;
-  margin-bottom: 20px;
+.seo-checklist li span {
+  color: var(--brand-primary);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.process-visual {
+  margin-top: 48px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.process-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .seo-band {
+    padding: 52px 0;
+  }
+
+  .seo-band-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .seo-band h2 {
+    font-size: 1.55rem;
+  }
 }
 
 /* ==========================================================================
@@ -1260,7 +1378,14 @@ header.header-scrolled {
   scroll-behavior: smooth;
   padding: 4px;
   flex: 1;
-  /* Hide scrollbar visually; arrows are the primary control */
+  /* Without this, a flex item defaults to min-width:auto, which means
+     it refuses to shrink below the width of all its cards combined —
+     so overflow-x:auto never actually engages, and instead the whole
+     row (and the page with it) pushes wider than the screen. This one
+     line is what makes the carousel actually stay contained and
+     swipeable instead of blowing out the layout on mobile. */
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
@@ -1429,6 +1554,7 @@ header.header-scrolled {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  line-height: 1;
   color: var(--brand-navy);
   transition: var(--transition);
 }
@@ -1595,7 +1721,11 @@ header.header-scrolled {
 .floating-top {
   position: fixed;
   bottom: 94px;
-  right: 24px;
+  /* 29px, not 24px: this button is 48px wide vs WhatsApp's 58px, so
+     matching "right" values leaves their centers 5px off from each
+     other -- this value makes the two actually stack on the same
+     vertical center line instead of looking slightly crooked. */
+  right: 29px;
   z-index: 998;
   width: 48px;
   height: 48px;
@@ -1695,13 +1825,7 @@ footer {
   }
 
   .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .trust-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 16px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .services-grid, .projects-grid {
@@ -1713,8 +1837,14 @@ footer {
     flex-basis: 300px;
   }
 
-  .estimator-card {
-    grid-template-columns: 1fr;
+  .quote-promise-grid,
+  .timeline-grid,
+  .service-areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-story-grid {
+    gap: 32px;
   }
 
   .process-grid {
@@ -1739,6 +1869,8 @@ footer {
   .top-bar-left {
     gap: 12px;
     font-size: 0.78rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .hero-slider-wrap {
@@ -1766,24 +1898,55 @@ footer {
     display: block;
   }
 
+  .brand-logo-link {
+    max-width: min(260px, 50vw);
+  }
+
+  .brand-logo,
+  .brand-logo-icon {
+    height: 36px;
+  }
+
   .mobile-menu-open .nav-menu {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 100%;
     left: 0;
     width: 100%;
     background: #FFFFFF;
-    padding: 24px;
+    padding: 20px 24px 28px;
     box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--border-light);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .mobile-menu-open {
+    overflow: hidden;
+  }
+
+  .mobile-menu-open .nav-menu .nav-link {
+    padding: 12px 0;
     border-bottom: 1px solid var(--border-light);
   }
 
   h1 { font-size: 2rem; }
   h2 { font-size: 1.75rem; }
 
-  .services-grid, .projects-grid, .process-grid {
+  .services-grid, .projects-grid, .process-grid,
+  .quote-promise-grid, .timeline-grid, .service-areas-grid,
+  .about-story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-story-grid h2 {
+    font-size: 1.65rem !important;
+  }
+
+  .comparison-table {
+    font-size: 0.88rem;
   }
 
   .testimonial-card,
@@ -1795,14 +1958,6 @@ footer {
   .reviews-arrow {
     width: 38px;
     height: 38px;
-  }
-
-  .btn-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .checkbox-grid {
-    grid-template-columns: 1fr;
   }
 
   .footer-grid {
@@ -1818,6 +1973,12 @@ footer {
 
   .slide-cta {
     flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .slide-cta .btn {
+    font-size: 0.85rem;
+    padding: 10px 16px;
   }
 
   .page-title {
@@ -1826,10 +1987,6 @@ footer {
 
   .page-lead {
     font-size: 1rem;
-  }
-
-  .estimator-card {
-    padding: 24px;
   }
 }
 
@@ -1868,8 +2025,12 @@ footer {
     height: 68px;
   }
 
+  .brand-logo-link {
+    max-width: min(240px, 52vw);
+  }
+
+  .brand-logo,
   .brand-logo-icon {
-    width: 34px;
     height: 34px;
   }
 
@@ -1879,6 +2040,13 @@ footer {
 
   .brand-sub {
     font-size: 0.6rem;
+  }
+
+  /* Full "Get Free " prefix is hidden on the narrowest phones (see
+     405px breakpoint below) -- leaves just "Quote" so the button
+     doesn't crowd the logo. Shown normally everywhere else. */
+  .quote-btn-prefix {
+    display: inline;
   }
 
   .nav-actions {
@@ -1895,12 +2063,20 @@ footer {
   }
 
   .hero-slider-wrap {
-    height: 380px;
+    height: 440px;
+    min-height: 440px;
     border-radius: var(--radius-md);
   }
 
   .slide-overlay {
-    padding: 18px 16px;
+    padding: 18px 16px 52px;
+  }
+
+  .slide-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .slide-badge {
@@ -1947,7 +2123,7 @@ footer {
     border-bottom: none;
   }
 
-  .spaces-section, .services-section, .estimator-section, .process-section, .projects-section, .testimonials-section, .faq-section, .contact-section {
+  .spaces-section, .services-section, .quote-promise-section, .process-section, .projects-section, .testimonials-section, .faq-section, .contact-section, .about-story-section {
     padding: 50px 0;
   }
 
@@ -1959,31 +2135,17 @@ footer {
     font-size: 0.85rem;
   }
 
-  .estimator-card {
-    padding: 18px;
-    border-radius: var(--radius-md);
+  .quote-promise-card {
+    padding: 22px 18px;
   }
 
-  .estimator-controls h3 {
-    font-size: 1.2rem;
+  .quote-promise-cta {
+    flex-direction: column;
   }
 
-  .btn-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .est-btn {
-    padding: 10px 6px;
-    font-size: 0.8rem;
-  }
-
-  .checkbox-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .price-display {
-    font-size: 1.7rem;
+  .quote-promise-cta .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .service-body {
@@ -2022,7 +2184,9 @@ footer {
     width: 40px;
     height: 40px;
     bottom: 76px;
-    right: 16px;
+    /* 21px to match WhatsApp's center (50px wide, right:16px) since
+       this button is only 40px wide -- see desktop rule for the math. */
+    right: 21px;
   }
 
   .faq-question {
@@ -2047,8 +2211,24 @@ footer {
     font-size: 0.82rem;
   }
 
-  .hero-form-card, .estimator-summary {
+  .hero-form-card {
     padding: 20px;
+  }
+
+  .reviews-arrow {
+    display: none;
+  }
+
+  .gallery-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .gallery-filters .filter-btn {
+    flex-shrink: 0;
   }
 
   .breadcrumb-nav {
@@ -2152,4 +2332,29 @@ footer {
 .cross-icon {
   color: #EF4444;
   font-weight: 800;
+}
+/* ==========================================================================
+   VERY NARROW PHONES (≤405px — iPhone SE, older/smaller Android)
+   The 480px breakpoint above already shrinks the header, but on genuinely
+   narrow screens the logo block + "Get Free Quote" button + hamburger
+   still crowd each other. This trims it further without removing anything
+   users actually need.
+   ========================================================================== */
+@media (max-width: 405px) {
+  .brand-logo-link {
+    max-width: min(168px, 46vw);
+  }
+
+  .brand-logo,
+  .brand-logo-icon {
+    height: 26px;
+  }
+
+  .quote-btn-prefix {
+    display: none;
+  }
+
+  .nav-actions .btn {
+    padding: 8px 12px;
+  }
 }
