@@ -1,9 +1,9 @@
 /* ==========================================================================
-   STAR ART WORKS — LIGHT THEME & LIVSPACE STYLING SYSTEM
+   STAR ART WORKS — LIGHT THEME & DESIGN SYSTEM
    ========================================================================== */
 
 :root {
-  /* Color Palette - Premium Livspace Inspired */
+  /* Color Palette */
   --bg-body: #FFFFFF;
   --bg-alt: #F8F9FA;
   --bg-surface: #FFFFFF;
@@ -34,10 +34,9 @@
   --radius-lg: 18px;
   --radius-full: 9999px;
   
-  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --header-height: 80px;
   --header-height-mobile: 68px;
 }
@@ -52,6 +51,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* Every anchor-jump target on the site (in-page sections and the
@@ -102,6 +103,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 img {
@@ -125,12 +128,15 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  touch-action: manipulation;
 }
 
 .wrap {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Typography Helpers */
@@ -240,12 +246,18 @@ h4 { font-size: 1.15rem; }
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 768px) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ==========================================================================
@@ -321,7 +333,13 @@ header {
   z-index: 1000;
   background-color: var(--bg-body);
   border-bottom: 1px solid var(--border-light);
-  transition: var(--transition);
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+main {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
 }
 
 header.header-scrolled {
@@ -455,7 +473,7 @@ header.header-scrolled {
 }
 
 /* ==========================================================================
-   LIVSPACE-STYLE HERO SLIDER WITH FLOATING FORM
+   HERO SLIDER
    ========================================================================== */
 
 .hero-section {
@@ -762,7 +780,7 @@ header.header-scrolled {
 
 .spaces-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -775,6 +793,7 @@ header.header-scrolled {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   transition: var(--transition);
+  min-width: 0;
 }
 
 .space-item:hover {
@@ -798,21 +817,42 @@ header.header-scrolled {
   font-weight: 600;
   color: var(--brand-navy);
   font-size: 0.95rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
 }
 
 .spaces-list--compact {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 @media (max-width: 900px) {
   .spaces-layout { grid-template-columns: 1fr; }
   .spaces-image img { height: 320px; }
-  .spaces-list--compact { grid-template-columns: repeat(2, 1fr); }
+  .spaces-list--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 560px) {
-  .spaces-list { grid-template-columns: 1fr; }
-  .spaces-list--compact { grid-template-columns: 1fr; }
+  .spaces-list,
+  .spaces-list--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .space-item {
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  .space-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .space-item span {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
 }
 
 /* ==========================================================================
@@ -1340,11 +1380,22 @@ header.header-scrolled {
   margin-top: 40px;
 }
 
-/* Carousel: arrow buttons flank a horizontally-scrolling track */
+/* Carousel: swipeable track + always-visible prev/next controls */
 .reviews-carousel {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.reviews-controls {
+  display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 12px;
 }
 
 .reviews-arrow {
@@ -1355,19 +1406,25 @@ header.header-scrolled {
   border: 1px solid var(--border-light);
   background: #FFFFFF;
   color: var(--brand-navy);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
-.reviews-arrow:hover {
+.reviews-arrow:hover:not(:disabled) {
   background: var(--brand-navy);
   border-color: var(--brand-navy);
   color: #FFFFFF;
-  transform: translateY(-2px);
+}
+
+.reviews-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .reviews-track {
@@ -1376,8 +1433,9 @@ header.header-scrolled {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 4px;
-  flex: 1;
+  padding: 4px 2px;
+  width: 100%;
+  overscroll-behavior-x: contain;
   /* Without this, a flex item defaults to min-width:auto, which means
      it refuses to shrink below the width of all its cards combined —
      so overflow-x:auto never actually engages, and instead the whole
@@ -1523,7 +1581,7 @@ header.header-scrolled {
   border-radius: var(--radius-sm);
   margin-bottom: 16px;
   overflow: hidden;
-  transition: var(--transition);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .faq-item.active {
@@ -1538,40 +1596,76 @@ header.header-scrolled {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--brand-navy);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   cursor: pointer;
+  min-height: 56px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .faq-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--bg-alt);
-  display: flex;
+  color: var(--brand-navy);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: var(--brand-navy);
-  transition: var(--transition);
+  flex-shrink: 0;
+  position: relative;
+  font-size: 0;
+  line-height: 0;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
 }
 
 .faq-item.active .faq-icon {
-  transform: rotate(45deg);
   background: var(--brand-primary);
   color: #FFFFFF;
+  transform: rotate(45deg);
 }
 
 .faq-answer {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.active .faq-answer {
+  grid-template-rows: 1fr;
 }
 
 .faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
   padding: 0 24px 24px 24px;
   font-size: 0.95rem;
   color: var(--text-secondary);
@@ -1898,6 +1992,10 @@ footer {
     display: block;
   }
 
+  .nav-wrap {
+    height: var(--header-height-mobile);
+  }
+
   .brand-logo-link {
     max-width: min(260px, 50vw);
   }
@@ -1907,29 +2005,86 @@ footer {
     height: 36px;
   }
 
-  .mobile-menu-open .nav-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
+  /* Keep top-bar + logo header where they are; panel drops below both. */
+  body.mobile-menu-open .top-bar {
+    position: fixed;
+    top: 0;
     left: 0;
+    right: 0;
     width: 100%;
-    background: #FFFFFF;
-    padding: 20px 24px 28px;
-    box-shadow: var(--shadow-lg);
-    border-bottom: 1px solid var(--border-light);
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
-    z-index: 100;
+    z-index: 1102;
   }
 
-  .mobile-menu-open {
+  body.mobile-menu-open.mobile-menu-with-topbar .top-bar {
+    display: block;
+  }
+
+  body.mobile-menu-open:not(.mobile-menu-with-topbar) .top-bar {
+    display: none;
+  }
+
+  body.mobile-menu-open header {
+    position: fixed;
+    top: var(--mobile-chrome-top, 0px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1101;
+    background: #FFFFFF;
+    box-shadow: var(--shadow-md);
+  }
+
+  body.mobile-menu-open .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--mobile-menu-top, var(--header-height-mobile));
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    background: #FFFFFF;
+    padding: 8px 24px 20px;
+    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--border-light);
+    max-height: var(--mobile-menu-max-height, 70vh);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    z-index: 1101;
+  }
+
+  html.mobile-menu-open,
+  body.mobile-menu-open {
     overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.mobile-menu-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    z-index: 1090;
+    pointer-events: auto;
+  }
+
+  body.mobile-menu-open .floating-whatsapp,
+  body.mobile-menu-open .floating-top {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .mobile-menu-open .nav-menu .nav-link {
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border-light);
+    font-size: 1rem;
+  }
+
+  .mobile-menu-open .nav-menu li:last-child .nav-link {
+    border-bottom: none;
   }
 
   h1 { font-size: 2rem; }
@@ -1951,13 +2106,14 @@ footer {
 
   .testimonial-card,
   .review-card {
-    flex-basis: 82vw;
+    flex: 0 0 min(300px, calc(100% - 16px));
+    max-width: calc(100vw - 64px);
     padding: 24px;
   }
 
   .reviews-arrow {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-grid {
@@ -2095,9 +2251,17 @@ footer {
     margin-bottom: 14px;
   }
 
+  .slide-cta {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
   .slide-cta .btn {
     padding: 10px 18px;
     font-size: 0.85rem;
+    text-align: center;
+    width: 100%;
   }
 
   .slider-arrow {
@@ -2193,6 +2357,7 @@ footer {
     padding: 16px 18px;
     font-size: 0.95rem;
     gap: 10px;
+    min-height: 52px;
   }
 
   .faq-answer-inner {
@@ -2215,15 +2380,13 @@ footer {
     padding: 20px;
   }
 
-  .reviews-arrow {
-    display: none;
-  }
-
   .gallery-filters {
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    max-width: 100%;
     padding-bottom: 4px;
   }
 

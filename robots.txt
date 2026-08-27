@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Primary sitemap for Google, Bing, and other search engines
 Sitemap: https://www.starartworks.in/sitemap.xml
